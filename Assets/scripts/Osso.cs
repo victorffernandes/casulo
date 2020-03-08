@@ -4,13 +4,19 @@ using UnityEngine;
 
 public class Osso : MonoBehaviour
 {
-    private bool isSelected = false;
-    private bool isChecked = false;
+    private Sprite normalSprite;
+    public Sprite selected;
+    public bool isSelected = false;
+    public bool isChecked = false;
 
 
     public void setSelected(bool value){
         this.isSelected = value;
-        // adicionar código que troca imagem
+        if(value){
+            this.GetComponent<SpriteRenderer>().sprite = this.selected;
+        } else{
+            this.GetComponent<SpriteRenderer>().sprite = this.normalSprite;
+        }
     }
 
     public void setChecked(bool value){
@@ -18,11 +24,19 @@ public class Osso : MonoBehaviour
         // adicionar código que da checked
     }
 
+    public void OnMouseOver(){
+        this.setSelected(true);
+    }
+
+    public void OnMouseExit(){
+        this.setSelected(false);
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-
+        this.normalSprite = this.GetComponent<SpriteRenderer>().sprite;
+        this.setSelected(isSelected);
     }
 
     // Update is called once per frame
