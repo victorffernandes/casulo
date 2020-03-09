@@ -12,7 +12,7 @@ public class Osso : MonoBehaviour
 
     public void setSelected(bool value){
         this.isSelected = value;
-        if(value){
+        if(value && !isChecked){
             this.GetComponent<SpriteRenderer>().sprite = this.selected;
         } else{
             this.GetComponent<SpriteRenderer>().sprite = this.normalSprite;
@@ -30,6 +30,10 @@ public class Osso : MonoBehaviour
 
     public void OnMouseExit(){
         this.setSelected(false);
+    }
+
+    private void OnMouseDown(){
+        
     }
 
     // Start is called before the first frame update
