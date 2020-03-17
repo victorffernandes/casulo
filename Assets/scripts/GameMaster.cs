@@ -7,18 +7,22 @@ using UnityEngine.UI;
 
 public class GameMaster : MonoBehaviour
 {
+    private bool isPlaying = false;
     public Dictionary<string, AudioSource> audios = new Dictionary<string, AudioSource>();
     public Dictionary<string, string> texts = new Dictionary<string, string>();
 
 
     public void playGameAction(string actionName)
     {
-        int time = (int)audios[actionName].clip.length;
-        audios[actionName].Play();
-        fillText(texts[actionName], time);
+        if(!isPlaying){
+            isPlaying = true;
+            float time = audios[actionName].clip.length;
+            audios[actionName].Play();
+            StartCoroutine(delayFill(texts[actionName], time));
+        }
     }
 
-    IEnumerator delayFill(string text, int time){
+    IEnumerator delayFill(string text, float time){
         Text textObject = GameObject.FindGameObjectWithTag("text-box").GetComponent<Text>();
         textObject.text = "";
         for (int i = 0; i < text.Length; i++)
@@ -26,12 +30,8 @@ public class GameMaster : MonoBehaviour
             yield return new WaitForSeconds((time / text.Length));
             textObject.text += text[i];
         }
+        isPlaying = false;
         yield return 0 ;
-    }
-
-    private void fillText(string text, int time)
-    {
-        StartCoroutine(delayFill(text, time));
     }
 
     // Start is called before the first frame update

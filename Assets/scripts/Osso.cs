@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Osso : MonoBehaviour
 {
+    public string action;
     private Sprite normalSprite;
     public Sprite selected;
     public bool isSelected = false;
@@ -33,7 +34,10 @@ public class Osso : MonoBehaviour
     }
 
     private void OnMouseDown(){
-        
+        if(!isChecked){
+            GameObject.FindGameObjectWithTag("game-master").GetComponent<GameMaster>().playGameAction(action);
+            isChecked = true;
+        }
     }
 
     // Start is called before the first frame update
