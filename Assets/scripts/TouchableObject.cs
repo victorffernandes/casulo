@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Osso : MonoBehaviour
+public class TouchableObject : MonoBehaviour
 {
     public string action;
     private Sprite normalSprite;
     public Sprite selected;
     public bool isSelected = false;
     public bool isChecked = false;
+    public GameMaster master;
 
 
     public void setSelected(bool value){
@@ -22,11 +23,19 @@ public class Osso : MonoBehaviour
 
     public void setChecked(bool value){
         this.isChecked = value;
-        // adicionar código que da checked
+
+        foreach (Transform item in this.GetComponentsInChildren<Transform>(true))
+        {
+            if(item.CompareTag("tick-check")){
+                item.gameObject.SetActive(this.isChecked);
+            }
+        }
     }
 
     public void OnMouseOver(){
-        this.setSelected(true);
+        if(!this.isChecked){
+            this.setSelected(true);
+        }
     }
 
     public void OnMouseExit(){
@@ -34,9 +43,9 @@ public class Osso : MonoBehaviour
     }
 
     private void OnMouseDown(){
-        if(!isChecked){
-            GameObject.FindGameObjectWithTag("game-master").GetComponent<GameMaster>().playGameAction(action);
-            isChecked = true;
+        if(!isChecked && !this.master.getIsPlaying()){
+            master.playGameAction(action);
+            this.setChecked(true);
         }
     }
 
@@ -44,6 +53,7 @@ public class Osso : MonoBehaviour
     void Start()
     {
         this.normalSprite = this.GetComponent<SpriteRenderer>().sprite;
+        master = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameMaster>();
         this.setSelected(isSelected);
     }
 
