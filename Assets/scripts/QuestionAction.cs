@@ -2,19 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
-using UnityEngine.UI;
 
 
 public class QuestionAction : Action
 {
-    private string answer;
+    private string[] answer;
+
     public QuestionAction(string line) : base(line){
         string[] splittedAction = line.Split('|');
-        this.answer = splittedAction.Length > 3 ? splittedAction[3]: "";
+        this.answer = splittedAction.Length > 3 ? splittedAction[3].Split(','): new string[0];
     }
 
-    public string getAnswer(){
-        return this.answer;
+    public bool isAnswer(string answerTry){
+        List<string> answers = new List<string>(this.answer);
+
+        return !string.IsNullOrEmpty(answers.Find(x => x.Contains(answerTry)));
     }
 
 }

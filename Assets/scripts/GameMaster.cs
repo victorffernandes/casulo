@@ -30,27 +30,21 @@ public class GameMaster : MonoBehaviour
             this.actionsDictionary.Add(action.getActionName(), action);
         }
 
-        this.allTouch = this.GetComponents<TouchableObject>();
+        this.allTouch = GameObject.FindObjectsOfType<TouchableObject>();
+        Debug.Log(allTouch.Length);
         this.mainAudioSource = this.gameObject.GetComponent<AudioSource>();
         playGameAction("introduction");
     }
-
-    void Update()
-    {
-        if (this.actualMode.Equals(GameMode.Information) && !isPlaying && this.isEveryoneChecked())
-        {
-            this.actualMode = GameMode.Quiz;
-            this.runQuestion();
-        }
-    }
-
     public bool isEveryoneChecked()
     {
+        bool isChecked = true;
         foreach (TouchableObject item in this.allTouch)
         {
-            if (!item.isChecked) return false;
+            if (!item.isChecked){
+                isChecked = false;   
+            }
         }
-        return true;
+        return isChecked;
     }
 
     public bool getIsPlaying()
@@ -60,6 +54,7 @@ public class GameMaster : MonoBehaviour
 
     public void playGameAction(string actionName)
     {
+
         if (!isPlaying)
         {
             isPlaying = true;
@@ -74,12 +69,17 @@ public class GameMaster : MonoBehaviour
                     StartCoroutine(delayFill(this.runningAction.getText(), time));
                     this.actionsDictionary.Remove(actionName);
                 }
+
             }
             else if (this.actualMode.Equals(GameMode.Quiz))
             {
                 QuestionAction question = (QuestionAction)this.runningAction;
-                if(this.runningAction.getActionName().Equals(actionName)){ // é resposta
-                } else { // não é resposta
+                if (question.isAnswer(actionName))
+                { // é resposta
+                    Debug.Log("É resposta certa");
+                }
+                else
+                { // não é resposta
 
                 }
             }
@@ -89,35 +89,47 @@ public class GameMaster : MonoBehaviour
     private void runQuestion()
     {
         string mainKey = "";
-        foreach (string key in actionsDictionary.Keys)
+        foreach (string key in new List<string>(actionsDictionary.Keys))
         {
-            if(mainKey.Equals("")){
-            mainKey = key;
-            this.actionsDictionary.TryGetValue(mainKey, out this.runningAction);
+            if (mainKey.Equals(""))
+            {
+                Debug.Log(key);
+                Debug.Log(actionsDictionary.ToString());
+                mainKey = key;
+                this.actionsDictionary.TryGetValue(mainKey, out this.runningAction);
+                Debug.Log(this.runningAction.getActionName());
 
-            float time = this.runningAction.getAudioClip().length;
-            this.mainAudioSource.PlayOneShot(this.runningAction.getAudioClip());
+                float time = this.runningAction.getAudioClip().length;
+                this.mainAudioSource.PlayOneShot(this.runningAction.getAudioClip());
 
-            isPlaying = true;
-            StartCoroutine(delayFill(this.runningAction.getText(), time));
-            this.actionsDictionary.Remove(mainKey);
+                isPlaying = true;
+                StartCoroutine(delayFill(this.runningAction.getText(), time));
+                this.actionsDictionary.Remove(mainKey);
             }
         }
 
-        if(mainKey.Equals("")){
+        if (mainKey.Equals(""))
+        {
             // game over
         }
     }
     public IEnumerator delayFill(string text, float time)
-{
-    Text textObject = GameObject.FindGameObjectWithTag("text-box").GetComponent<Text>();
-    textObject.text = "";
-    for (int i = 0; i < text.Length; i++)
     {
-        textObject.text += text[i];
-        yield return new WaitForSeconds((time / text.Length));
+        Text textObject = GameObject.FindGameObjectWithTag("text-box").GetComponent<Text>();
+        textObject.text = "";
+        for (int i = 0; i < text.Length; i++)
+        {
+            textObject.text += text[i];
+            yield return new WaitForSeconds((time / text.Length));
+        }
+        isPlaying = false;
+
+        if (this.isEveryoneChecked() && this.runningAction is QuestionAction)
+        {
+            this.actualMode = GameMode.Quiz;
+            this.runQuestion();
+        }
+
+        yield return 0;
     }
-    isPlaying = false;
-    yield return 0;
-}
 }
