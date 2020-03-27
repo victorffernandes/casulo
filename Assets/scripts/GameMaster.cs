@@ -9,14 +9,15 @@ public class GameMaster : MonoBehaviour
 {
     enum GameMode { Information = 1, Quiz = 2 };
 
-    private AudioSource mainAudioSource;
-    private bool isPlaying = false;
-
     public Action runningAction;
-    private GameMode actualMode = GameMode.Information;
-    public string phaseName;
-    TouchableObject[] allTouch;
     public Dictionary<string, Action> actionsDictionary = new Dictionary<string, Action>();
+    private GameMode actualMode = GameMode.Information;
+    private TouchableObject[] allTouch;
+
+    private AudioSource mainAudioSource;
+
+    public string phaseName;
+    private bool isPlaying = false;
 
     // Start is called before the first frame update
     void Start()
@@ -25,13 +26,22 @@ public class GameMaster : MonoBehaviour
 
         foreach (string actionString in actionsStrings)
         {
-            Action action = new Action(actionString);
+            Action action = Action.actionFactory(actionString);
             this.actionsDictionary.Add(action.getActionName(), action);
         }
 
-        this.mainAudioSource = this.gameObject.GetComponent<AudioSource>();
         this.allTouch = this.GetComponents<TouchableObject>();
+        this.mainAudioSource = this.gameObject.GetComponent<AudioSource>();
         playGameAction("introduction");
+    }
+
+    void Update()
+    {
+        if (this.actualMode.Equals(GameMode.Information) && !isPlaying && this.isEveryoneChecked())
+        {
+            this.actualMode = GameMode.Quiz;
+            this.runQuestion();
+        }
     }
 
     public bool isEveryoneChecked()
@@ -64,22 +74,50 @@ public class GameMaster : MonoBehaviour
                     StartCoroutine(delayFill(this.runningAction.getText(), time));
                     this.actionsDictionary.Remove(actionName);
                 }
-            } else if(this.actualMode.Equals(GameMode.Quiz)){
+            }
+            else if (this.actualMode.Equals(GameMode.Quiz))
+            {
+                QuestionAction question = (QuestionAction)this.runningAction;
+                if(this.runningAction.getActionName().Equals(actionName)){ // é resposta
+                } else { // não é resposta
 
+                }
             }
         }
     }
 
-    IEnumerator delayFill(string text, float time)
+    private void runQuestion()
     {
-        Text textObject = GameObject.FindGameObjectWithTag("text-box").GetComponent<Text>();
-        textObject.text = "";
-        for (int i = 0; i < text.Length; i++)
+        string mainKey = "";
+        foreach (string key in actionsDictionary.Keys)
         {
-            textObject.text += text[i];
-            yield return new WaitForSeconds((time / text.Length));
+            if(mainKey.Equals("")){
+            mainKey = key;
+            this.actionsDictionary.TryGetValue(mainKey, out this.runningAction);
+
+            float time = this.runningAction.getAudioClip().length;
+            this.mainAudioSource.PlayOneShot(this.runningAction.getAudioClip());
+
+            isPlaying = true;
+            StartCoroutine(delayFill(this.runningAction.getText(), time));
+            this.actionsDictionary.Remove(mainKey);
+            }
         }
-        isPlaying = false;
-        yield return 0;
+
+        if(mainKey.Equals("")){
+            // game over
+        }
     }
+    public IEnumerator delayFill(string text, float time)
+{
+    Text textObject = GameObject.FindGameObjectWithTag("text-box").GetComponent<Text>();
+    textObject.text = "";
+    for (int i = 0; i < text.Length; i++)
+    {
+        textObject.text += text[i];
+        yield return new WaitForSeconds((time / text.Length));
+    }
+    isPlaying = false;
+    yield return 0;
+}
 }
