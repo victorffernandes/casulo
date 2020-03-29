@@ -8,18 +8,22 @@ using UnityEngine.UI;
 public class GameMaster : MonoBehaviour
 {
     enum GameMode { Information = 1, Quiz = 2 };
-
     public Action runningAction;
+    public AudioClip successFeedback, errorFeedback;
     public Dictionary<string, Action> actionsDictionary = new Dictionary<string, Action>();
     private GameMode actualMode = GameMode.Information;
     private TouchableObject[] allTouch;
-
     private AudioSource mainAudioSource;
-
     public string phaseName;
     private bool isPlaying = false;
 
-    // Start is called before the first frame update
+    public void uncheckAll(){
+        Debug.Log("Uncheck all");
+        foreach(TouchableObject a in allTouch){
+            a.setChecked(false);
+        }
+    }
+
     void Start()
     {
         string[] actionsStrings = System.IO.File.ReadAllLines("./Assets/texts/texts-" + phaseName);
@@ -30,8 +34,10 @@ public class GameMaster : MonoBehaviour
             this.actionsDictionary.Add(action.getActionName(), action);
         }
 
+        this.successFeedback = (AudioClip)Resources.Load("Sounds/certo-feedback");
+        this.errorFeedback = (AudioClip)Resources.Load("Sounds/errado-feedback");
+
         this.allTouch = GameObject.FindObjectsOfType<TouchableObject>();
-        Debug.Log(allTouch.Length);
         this.mainAudioSource = this.gameObject.GetComponent<AudioSource>();
         playGameAction("introduction");
     }
@@ -40,8 +46,9 @@ public class GameMaster : MonoBehaviour
         bool isChecked = true;
         foreach (TouchableObject item in this.allTouch)
         {
-            if (!item.isChecked){
-                isChecked = false;   
+            if (!item.isChecked)
+            {
+                isChecked = false;
             }
         }
         return isChecked;
@@ -54,7 +61,6 @@ public class GameMaster : MonoBehaviour
 
     public void playGameAction(string actionName)
     {
-
         if (!isPlaying)
         {
             isPlaying = true;
@@ -74,13 +80,18 @@ public class GameMaster : MonoBehaviour
             else if (this.actualMode.Equals(GameMode.Quiz))
             {
                 QuestionAction question = (QuestionAction)this.runningAction;
-                if (question.isAnswer(actionName))
+                question.checkAnswer(actionName);
+                if (question.isAnswer())
                 { // é resposta
+                    this.mainAudioSource.PlayOneShot(this.successFeedback);
+                    StartCoroutine(delayFill("Parabéns!!", this.successFeedback.length));
                     Debug.Log("É resposta certa");
                 }
                 else
                 { // não é resposta
-
+                    this.mainAudioSource.PlayOneShot(this.successFeedback);
+                    StartCoroutine(delayFill("Tente novamente! :(", this.errorFeedback.length));
+                    Debug.Log("Tente novamente! :(");
                 }
             }
         }
@@ -108,10 +119,6 @@ public class GameMaster : MonoBehaviour
             }
         }
 
-        if (mainKey.Equals(""))
-        {
-            // game over
-        }
     }
     public IEnumerator delayFill(string text, float time)
     {
@@ -124,10 +131,28 @@ public class GameMaster : MonoBehaviour
         }
         isPlaying = false;
 
-        if (this.isEveryoneChecked() && this.runningAction is QuestionAction)
+        if (this.isEveryoneChecked() || this.actualMode.Equals(GameMode.Quiz))
         {
-            this.actualMode = GameMode.Quiz;
-            this.runQuestion();
+            uncheckAll();
+            bool isQuestion = this.runningAction is QuestionAction;
+            if (isQuestion)
+            {
+                QuestionAction action = (QuestionAction)this.runningAction;
+                if (this.actionsDictionary.Count > 0 && action.isAnswer())
+                {
+                    this.runQuestion();
+                }
+                else if(this.actionsDictionary.Count == 0 && action.isAnswer())
+                {
+                    Debug.Log("Game Over");
+                    // game over
+                }
+            }
+            else
+            {
+                this.actualMode = GameMode.Quiz;
+                this.runQuestion();
+            }
         }
 
         yield return 0;
