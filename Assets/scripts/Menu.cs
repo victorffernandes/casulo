@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class Menu : MonoBehaviour
@@ -10,9 +9,8 @@ public class Menu : MonoBehaviour
     }
 
     public void startGameButton() {
-        int i = 2;
-        string a = "robson";
-        Debug.Log(a);
+        GameObject.FindGameObjectWithTag("fade").GetComponent<Animator>().SetInteger("fade", 1);
+        Debug.Log("Ajustando jogo");
     }
 
     // Update is called once per frame

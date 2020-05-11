@@ -1,8 +1,10 @@
-introduction|Sounds/phase1/example|O corpo humano pode ser analizado sobre diversas áreas, podemos estudar as células, os tecidos, os orgãos, os sistemas, enfim aqui nesse momento estudaremos os ossos.
-braco-esquerdo|Sounds/phase1/example|O corpo humano pode ser analizado sobre diversas áreas, podemos estudar as células, os tecidos, os orgãos, os sistemas, enfim aqui nesse momento estudaremos os ossos.
-braco-direito|Sounds/phase1/example|O corpo humano pode ser analizado sobre diversas áreas, podemos estudar as células, os tecidos, os orgãos, os sistemas, enfim aqui nesse momento estudaremos os ossos.
-perna-esquerda|Sounds/phase1/example|O corpo humano pode ser analizado sobre diversas áreas, podemos estudar as células, os tecidos, os orgãos, os sistemas, enfim aqui nesse momento estudaremos os ossos.
-perna-direita|Sounds/phase1/example|O corpo humano pode ser analizado sobre diversas áreas, podemos estudar as células, os tecidos, os orgãos, os sistemas, enfim aqui nesse momento estudaremos os ossos.
-tronco|Sounds/phase1/example|O corpo humano pode ser analizado sobre diversas áreas, podemos estudar as células, os tecidos, os orgãos, os sistemas, enfim aqui nesse momento estudaremos os ossos.
-cranio|Sounds/phase1/example|O corpo humano pode ser analizado sobre diversas áreas, podemos estudar as células, os tecidos, os orgãos, os sistemas, enfim aqui nesse momento estudaremos os ossos.
-question-1|Sounds/phase1/example|O corpo humano pode ser analizado sobre diversas áreas, podemos estudar as células, os tecidos, os orgãos, os sistemas, enfim aqui nesse momento estudaremos os ossos.|cranio
+introduction|Sounds/phase1/info/inicio-ossos|O corpo humano pode ser analizado sobre diversas áreas, podemos estudar as células, os tecidos, os orgãos, os sistemas, enfim aqui nesse momento estudaremos os ossos.
+braco-esquerdo|Sounds/phase1/info/esqueleto-geral|Você sabia que o esqueleto humano é composto por 206 ossos que são movimentados pelos músculos e ligados uns aos outros pelas articulações.
+braco-direito|Sounds/phase1/info/ossos-bracos-pernas-info|Os ossos dos braços e das pernas sustentam os músculos responsáveis pelos movimentos.
+perna-esquerda|Sounds/phase1/femur/femur-info| O femur é osso mais comprido do corpo humano e liga o quadril ao joelho.
+perna-direita|Sounds/phase1/info/membros-inferiores-ossos-info|O membro inferior possui 62 ossos, sendo 26 em cada pé, 2 tibias, 2 fíbulas 2 rotulas, 2 femurs e 2 coxas.
+tronco|Sounds/phase1/caixa-toraxica/caixa-toraxica-info|A caixa toraxica fica no peito e protege o coração e os pulmões
+cranio|Sounds/phase1/estribo/estribo-info|O estribo é o menor osso do corpo humano e fica localizado dentro do nosso ouvido.
+question-1|Sounds/phase1/estribo/estribo-pergunta|Com o mouse, clique no menor osso do corpo humano|cranio
+question-2|Sounds/phase1/femur/femur-pergunta|Com o mouse, clique no maior osso do corpo humano|perna-esquerda,perna-direita
+question-3|Sounds/phase1/caixa-toraxica/caixa-toraxica-pergunta|Clique com o mouse onde fica a caixa toraxica|tronco

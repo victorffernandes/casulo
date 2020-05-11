@@ -10,7 +10,15 @@ public class Action
     private string actionName;
     private AudioClip audioClip;
     private string actionText;
-    private string answer;
+
+    public static Action actionFactory(string line){
+        string[] splittedLine = line.Split('|');
+
+        if(splittedLine.Length > 3){
+            return new QuestionAction(line);
+        }
+        return new Action(line);
+    }
 
     public Action(string line){
         string[] splittedAction = line.Split('|');
@@ -18,7 +26,6 @@ public class Action
         this.actionName = splittedAction[0];
         this.audioClip = this.loadAudio(splittedAction[1]);
         this.actionText = splittedAction[2];
-        this.answer = splittedAction.Length > 3 ? splittedAction[3]: "";
     }
 
     public Action(){
