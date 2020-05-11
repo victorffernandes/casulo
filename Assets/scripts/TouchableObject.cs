@@ -6,62 +6,44 @@ public class TouchableObject : MonoBehaviour
 {
     public string action;
     private Sprite normalSprite;
-    public GameObject over;
     public Sprite selected;
     public bool isSelected = false;
     public bool isChecked = false;
     public GameMaster master;
 
 
-    public void setSelected(bool value)
-    {
+    public void setSelected(bool value){
         this.isSelected = value;
-        if (value && !isChecked)
-        {
-            this.over.SetActive(false);
+        if(value && !isChecked){
             this.GetComponent<SpriteRenderer>().sprite = this.selected;
-        }
-        else
-        {
+        } else{
             this.GetComponent<SpriteRenderer>().sprite = this.normalSprite;
         }
     }
 
-    public void setChecked(bool value)
-    {
+    public void setChecked(bool value){
         this.isChecked = value;
 
         foreach (Transform item in this.GetComponentsInChildren<Transform>(true))
         {
-            if (item.CompareTag("tick-check"))
-            {
-                this.over.SetActive(false);
+            if(item.CompareTag("tick-check")){
                 item.gameObject.SetActive(this.isChecked);
             }
         }
     }
 
-    public void OnMouseOver()
-    {
-        if (!this.isChecked)
-        {
-            this.over.SetActive(false);
+    public void OnMouseOver(){
+        if(!this.isChecked){
             this.setSelected(true);
         }
     }
 
-    public void OnMouseExit()
-    {
-        if(!isChecked){
-            this.over.SetActive(true);
-        }
+    public void OnMouseExit(){
         this.setSelected(false);
     }
 
-    private void OnMouseDown()
-    {
-        if (!isChecked && !this.master.getIsPlaying())
-        {
+    private void OnMouseDown(){
+        if(!isChecked && !this.master.getIsPlaying()){
             master.playGameAction(action);
             this.setChecked(true);
         }
@@ -78,6 +60,6 @@ public class TouchableObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 }

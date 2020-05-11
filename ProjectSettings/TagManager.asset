@@ -6,8 +6,6 @@ TagManager:
   tags:
   - text-box
   - tick-check
-  - click-mouse
-  - fade
   layers:
   - Default
   - TransparentFX
