@@ -1,54 +1,81 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
-using System.Threading;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
-
 
 
 public class GameMaster : MonoBehaviour
 {
-    enum GameMode { Information = 1, Quiz = 2 };
-    public Action runningAction;
-    public AudioClip successFeedback, errorFeedback;
-    public Dictionary<string, Action> actionsDictionary = new Dictionary<string, Action>();
     private GameMode actualMode = GameMode.Information;
-    private TouchableObject[] allTouch;
+    public enum GameMode { Information = 1, Quiz = 2 };
+
+    public Action runningAction;
+    public Dictionary<string, Action> actionsDictionary = new Dictionary<string, Action>();
+
+    private TouchableObject[] touchableObjects;
+
     private AudioSource mainAudioSource;
     public string phaseName;
-    private bool isPlaying = false;
-
-    public void uncheckAll(){
-        Debug.Log("Uncheck all");
-        foreach(TouchableObject a in allTouch){
-            a.setChecked(false);
-        }
-    }
-
     void Start()
     {
         string[] actionsStrings = System.IO.File.ReadAllLines("./Assets/texts/texts-" + phaseName);
+        mainAudioSource = gameObject.GetComponent<AudioSource>();
+        touchableObjects = GameObject.FindObjectsOfType<TouchableObject>();
 
-        foreach (string actionString in actionsStrings)
+
+        foreach (string actionString in actionsStrings) // creating all actions
         {
             Action action = Action.actionFactory(actionString);
             this.actionsDictionary.Add(action.getActionName(), action);
         }
 
-        this.successFeedback = (AudioClip)Resources.Load("Sounds/certo-feedback");
-        this.errorFeedback = (AudioClip)Resources.Load("Sounds/errado-feedback");
+        foreach (TouchableObject item in touchableObjects) // subscribing on all touchable objects
+        {
+            item.TouchedObject += OnTouch;
+        }
 
-        this.allTouch = GameObject.FindObjectsOfType<TouchableObject>();
-        this.mainAudioSource = this.gameObject.GetComponent<AudioSource>();
-        playGameAction("introduction");
+        // changeToQuiz();
+        getGameAction("introduction").play(checkQuestionModeCallback);
     }
+
+    public void OnTouch(object source, EventArgs e)
+    { // callback sempre que um touchable object é tocado
+        TouchableObject tObj = ((TouchableObject)source);
+        String actionName = tObj.action;
+        Debug.Log("Event called " + actionName);
+
+        if (!Action.getPlayingState())
+        {
+            if (GameMode.Information.Equals(actualMode))
+            { // atualiza a running action e roda ela
+                runningAction = this.getGameAction(actionName);
+                tObj.setChecked(true, "success");
+                runningAction.play(checkQuestionModeCallback);
+            }
+            else
+            { // tenta responder a pergunta da running action
+
+                QuestionAction actual = (QuestionAction)this.runningAction;
+                if (!Action.getPlayingState())
+                {
+                    if (actual.answer(actionName))
+                    {
+                        tObj.setChecked(true, "success");
+                    }
+                    else
+                    {
+                        tObj.setChecked(true, "error");
+                    }
+                }
+            }
+        }
+    }
+
     public bool isEveryoneChecked()
     {
         bool isChecked = true;
-        foreach (TouchableObject item in this.allTouch)
+        foreach (TouchableObject item in this.touchableObjects)
         {
-            if (!item.isChecked)
+            if (!(item.isChecked))
             {
                 isChecked = false;
             }
@@ -56,107 +83,75 @@ public class GameMaster : MonoBehaviour
         return isChecked;
     }
 
-    public bool getIsPlaying()
+    public void resetAll()
     {
-        return this.isPlaying;
-    }
-
-    public void playGameAction(string actionName)
-    {
-        if (!isPlaying)
+        Debug.Log("Reseting all touchable objects");
+        foreach (TouchableObject a in touchableObjects)
         {
-            isPlaying = true;
-
-            if (this.actualMode.Equals(GameMode.Information))
-            {
-                if (actionsDictionary.TryGetValue(actionName, out this.runningAction))
-                {
-                    float time = this.runningAction.getAudioClip().length;
-                    this.mainAudioSource.PlayOneShot(this.runningAction.getAudioClip());
-
-                    StartCoroutine(delayFill(this.runningAction.getText(), time));
-                    this.actionsDictionary.Remove(actionName);
-                }
-
-            }
-            else if (this.actualMode.Equals(GameMode.Quiz))
-            {
-                QuestionAction question = (QuestionAction)this.runningAction;
-                question.checkAnswer(actionName);
-                if (question.isAnswer())
-                { // é resposta
-                    this.mainAudioSource.PlayOneShot(this.successFeedback);
-                    StartCoroutine(delayFill("Parabéns!!", this.successFeedback.length));
-                    Debug.Log("É resposta certa");
-                }
-                else
-                { // não é resposta
-                    this.mainAudioSource.PlayOneShot(this.successFeedback);
-                    StartCoroutine(delayFill("Tente novamente! :(", this.errorFeedback.length));
-                    Debug.Log("Tente novamente! :(");
-                }
-            }
+            a.setChecked(false, "success");
+            a.setChecked(false, "error");
+            a.setSelected(false);
+            a.over.SetActive(true);
         }
     }
 
-    private void runQuestion()
+    public Action getGameAction(string actionName)
     {
+        Action action;
+        actionsDictionary.TryGetValue(actionName, out action);
+        actionsDictionary.Remove(actionName);
+        return action;
+    }
+
+    public void nextQuestion() // chamada no final da animação de sucesso da pergunta
+    {
+        // QuestionAction answered = (QuestionAction)this.runningAction;
+        // if (answered.gotAnswered())
         string mainKey = "";
         foreach (string key in new List<string>(actionsDictionary.Keys))
         {
             if (mainKey.Equals(""))
             {
-                Debug.Log(key);
                 Debug.Log(actionsDictionary.ToString());
                 mainKey = key;
-                this.actionsDictionary.TryGetValue(mainKey, out this.runningAction);
-                Debug.Log(this.runningAction.getActionName());
+                actionsDictionary.TryGetValue(mainKey, out runningAction);
+                Debug.Log(runningAction.getActionName());
 
-                float time = this.runningAction.getAudioClip().length;
-                this.mainAudioSource.PlayOneShot(this.runningAction.getAudioClip());
-
-                isPlaying = true;
-                StartCoroutine(delayFill(this.runningAction.getText(), time));
-                this.actionsDictionary.Remove(mainKey);
+                runningAction.play(questionCallback);
+                actionsDictionary.Remove(mainKey);
             }
         }
 
+        if (mainKey.Equals(""))
+        {
+            GameObject.FindGameObjectWithTag("game-over").GetComponent<Animator>().Play("game-over");
+        }
     }
-    public IEnumerator delayFill(string text, float time)
+
+    public void questionCallback()
     {
-        Text textObject = GameObject.FindGameObjectWithTag("text-box").GetComponent<Text>();
-        textObject.text = "";
-        for (int i = 0; i < text.Length; i++)
-        {
-            textObject.text += text[i];
-            yield return new WaitForSeconds((time / text.Length));
-        }
-        isPlaying = false;
-
-        if (this.isEveryoneChecked() || this.actualMode.Equals(GameMode.Quiz))
-        {
-            uncheckAll();
-            bool isQuestion = this.runningAction is QuestionAction;
-            if (isQuestion)
-            {
-                QuestionAction action = (QuestionAction)this.runningAction;
-                if (this.actionsDictionary.Count > 0 && action.isAnswer())
-                {
-                    this.runQuestion();
-                }
-                else if(this.actionsDictionary.Count == 0 && action.isAnswer())
-                {
-                    Debug.Log("Game Over");
-                    GameObject.FindObjectOfType<FadeManager>().startFadeOut();
-                }
-            }
-            else
-            {
-                this.actualMode = GameMode.Quiz;
-                this.runQuestion();
-            }
-        }
-
-        yield return 0;
+        resetAll();
     }
+
+    public void acceptQuizInit()
+    {
+        GameObject.FindGameObjectWithTag("quiz-init").GetComponent<Animator>().Play("quiz-init-exit");
+        nextQuestion();
+    }
+
+    private void changeToQuiz()
+    {
+        resetAll();
+        this.actualMode = GameMode.Quiz;
+        GameObject.FindGameObjectWithTag("quiz-init").GetComponent<Animator>().Play("quiz-init-enter");
+    }
+
+    private void checkQuestionModeCallback()
+    {
+        if (this.isEveryoneChecked())
+        {
+            changeToQuiz();
+        }
+    }
+
 }

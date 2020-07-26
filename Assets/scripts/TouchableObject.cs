@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,6 +12,24 @@ public class TouchableObject : MonoBehaviour
     public bool isSelected = false;
     public bool isChecked = false;
     public GameMaster master;
+
+    public delegate void TouchedObjectEventHandler(object source, EventArgs e);
+
+    public event TouchedObjectEventHandler TouchedObject;
+
+    void Start()
+    {
+        this.normalSprite = this.GetComponent<SpriteRenderer>().sprite;
+        master = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameMaster>();
+        this.setSelected(isSelected);
+    }
+
+    public void OnTouch(){
+        if(TouchedObject != null){
+            Debug.Log("Calling event handler");
+            TouchedObject(this, EventArgs.Empty);
+        }
+    }
 
 
     public void setSelected(bool value)
@@ -27,16 +46,17 @@ public class TouchableObject : MonoBehaviour
         }
     }
 
-    public void setChecked(bool value)
+    public void setChecked(bool value, string sufix)
     {
         this.isChecked = value;
 
         foreach (Transform item in this.GetComponentsInChildren<Transform>(true))
         {
-            if (item.CompareTag("tick-check"))
+            if (item.tag.Contains("tick-check"))
             {
-                this.over.SetActive(false);
-                item.gameObject.SetActive(this.isChecked);
+                if(item.CompareTag("tick-check-" + sufix)){
+                    item.gameObject.SetActive(value);
+                }
             }
         }
     }
@@ -46,7 +66,7 @@ public class TouchableObject : MonoBehaviour
         if (!this.isChecked)
         {
             this.over.SetActive(false);
-            this.setSelected(true);
+            this.setSelected(true); 
         }
     }
 
@@ -60,24 +80,9 @@ public class TouchableObject : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (!isChecked && !this.master.getIsPlaying())
+        if (!isChecked && !Action.getPlayingState()) // TODO: checar se está jogando para ativar ou desativar o checked  
         {
-            master.playGameAction(action);
-            this.setChecked(true);
+            OnTouch();
         }
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        this.normalSprite = this.GetComponent<SpriteRenderer>().sprite;
-        master = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameMaster>();
-        this.setSelected(isSelected);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }

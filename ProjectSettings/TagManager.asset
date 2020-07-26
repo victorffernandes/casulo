@@ -8,6 +8,10 @@ TagManager:
   - tick-check
   - click-mouse
   - fade
+  - tick-check-success
+  - tick-check-error
+  - game-over
+  - quiz-init
   layers:
   - Default
   - TransparentFX
