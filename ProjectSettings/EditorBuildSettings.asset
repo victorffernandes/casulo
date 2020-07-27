@@ -11,4 +11,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/game.unity
     guid: 80ddb683936f545b5ab4c10a1ca9d6a0
+  - enabled: 1
+    path: Assets/Scenes/SelectPhase.unity
+    guid: b249862f924a94ff6ab99aee595f6b87
+  - enabled: 1
+    path: Assets/Scenes/menina.unity
+    guid: 2312e35e7b03d46d9a2b92e3c8948f04
+  - enabled: 1
+    path: Assets/Scenes/deficiente.unity
+    guid: 107640dca82694d5d9b9acb14c3c7c9b
   m_configObjects: {}

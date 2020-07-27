@@ -28,6 +28,11 @@ public class FaderManager : MonoBehaviour
         animator.SetTrigger("errorQuestion");
     }
 
+    public void changeSceneAnimation(int scene){
+        fadeOutScene = scene;
+        startFadeOut();
+    }
+
     public void changeScene()
     {
         SceneManager.LoadScene(fadeOutScene);

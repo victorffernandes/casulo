@@ -8,13 +8,7 @@ public class Menu : MonoBehaviour
 
     }
 
-    public void startGameButton() {
-        GameObject.FindGameObjectWithTag("fade").GetComponent<Animator>().SetInteger("fade", 1);
-        Debug.Log("Ajustando jogo");
-    }
-
-    // Update is called once per frame
-    void Update() {
-        
+    public void exitGame(){
+        Application.Quit();
     }
 }
