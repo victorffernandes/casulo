@@ -42,7 +42,7 @@ public class QuestionAction : Action
             float time = this.getAudioClip().length;
             mainAudioSource.PlayOneShot(this.getAudioClip());
 
-            master.GetComponent<MonoBehaviour>().StartCoroutine(this.delayFill(this.getText(), time, callback));
+            Action.master.GetComponent<MonoBehaviour>().StartCoroutine(this.delayFill(this.getText(), time, callback));
         }
     }
 
@@ -64,7 +64,7 @@ public class QuestionAction : Action
         if (this.isAnswer(name))
         {
             mainAudioSource.PlayOneShot(answerAudio);
-            master.GetComponent<GameMaster>().StartCoroutine(successAnim(answerAudio.length));
+            Action.master.GetComponent<GameMaster>().StartCoroutine(successAnim(answerAudio.length));
             answered = true;
             return true;
         }

@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/main-menu.unity
     guid: 29f181ed917d5400683832035d980e68
   - enabled: 1
-    path: Assets/Scenes/game.unity
+    path: Assets/Scenes/ossos.unity
     guid: 80ddb683936f545b5ab4c10a1ca9d6a0
   - enabled: 1
     path: Assets/Scenes/SelectPhase.unity

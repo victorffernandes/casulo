@@ -23,6 +23,7 @@ public class Action
         {
             return new QuestionAction(line);
         }
+
         return new Action(line);
     }
 
@@ -44,11 +45,8 @@ public class Action
     public IEnumerator delayFill(string text, float time, PlayCallback callback)
     {
         Action.isPlaying = true;
-        Text textObject = GameObject.FindGameObjectWithTag("text-box").GetComponent<Text>();
-        textObject.text = "";
         for (int i = 0; i < text.Length; i++)
         {
-            textObject.text += text[i];
             yield return new WaitForSeconds((time / text.Length));
         }
 
@@ -87,8 +85,7 @@ public class Action
         return this.actionName;
     }
 
-    private void defaultCallback()
-    {
+    private void defaultCallback() {
         // do default stuff
     }
 
