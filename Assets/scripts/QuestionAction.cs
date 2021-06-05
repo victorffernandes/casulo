@@ -20,7 +20,7 @@ public class QuestionAction : Action
         if (!Action.mainAudioSource)
         {
             Action.mainAudioSource = GameObject.FindObjectOfType<AudioSource>();
-            Action.master = GameObject.FindObjectOfType<GameMaster>().gameObject;n
+            Action.master = GameObject.FindObjectOfType<GameMaster>().gameObject;
         }
 
         string phaseName = Action.master.GetComponent<GameMaster>().phaseName;
