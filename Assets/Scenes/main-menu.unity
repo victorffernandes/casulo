@@ -176,7 +176,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: b8767cb23c8ef44fdbae8206d963d639, type: 3}
+  m_Texture: {fileID: 2800000, guid: 333532feb8c1945dbaf1648d5f4d6a36, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -312,7 +312,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: eb8811e28c4054855b923236bd0cf2c2, type: 3}
+  m_Texture: {fileID: 2800000, guid: 0a01a6a0c92e9483d9da20d0e967d243, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -554,7 +554,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: bf4ed7c3c3df24e058cfea35e2d459c4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 75450fe24b15e4de7ae0c7795da9bd7e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -683,7 +683,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e5ef23474a29f486081ce6d1eba8361a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ff2c41330cc714c5dbd01a20a7c5ff4d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -880,7 +880,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b4cf8ee2556a74df684f6c92d78d67a2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7f015a87e8f37468daffe995212ffcf4, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -972,7 +972,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 84b4a5a51f766474283c089fab055b6a, type: 3}
+  m_Texture: {fileID: 2800000, guid: df8caf73f67584094b3fe47794b49b5d, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -1191,7 +1191,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: ae2891e839c3f45869d5e82a6101c6e1, type: 3}
+  m_Texture: {fileID: 2800000, guid: b41dd34763ea94ed09263a7705081d79, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -1348,5 +1348,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5384539237732140727, guid: f71929b7f472a4b18a0830e6d111ec7b,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 7a4542e3133ed458bbbe3cb4eee36adc,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f71929b7f472a4b18a0830e6d111ec7b, type: 3}
