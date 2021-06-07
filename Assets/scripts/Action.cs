@@ -19,6 +19,10 @@ public class Action
     {
         string[] splittedLine = line.Split('|');
 
+        if(splittedLine.Length > 0 && splittedLine[0].IndexOf("$photo") != -1 ){
+            return new PhotoAction(line);
+        }
+
         if (splittedLine.Length > 3)
         {
             return new QuestionAction(line);

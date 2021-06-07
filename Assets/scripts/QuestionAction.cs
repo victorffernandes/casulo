@@ -8,7 +8,7 @@ public class QuestionAction : Action
     private string[] answers;
     private bool answered = false;
 
-    private AudioClip successFeedback, errorFeedback, answerAudio;
+    public AudioClip successFeedback, errorFeedback, answerAudio;
     private FaderManager fader;
 
     private void Start()

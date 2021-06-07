@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Net.Mime;
+using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 using System.IO;
@@ -13,6 +14,8 @@ public class PhoneCamera : MonoBehaviour
 
 	public RawImage background;
 	public AspectRatioFitter fit;
+
+	public PhotoAction actualPhotoAction;
 
 	// Use this for initialization
 	void Start()
@@ -38,10 +41,10 @@ public class PhoneCamera : MonoBehaviour
 		if (cameraTexture == null)
 			return;
 
-		cameraTexture.Play(); // Start the camera
+		// cameraTexture.Play(); // Start the camera		
 		background.texture = cameraTexture; // Set the texture
 
-		camAvailable = true; // Set the camAvailable for future purposes.
+		camAvailable = false; // Set the camAvailable for future purposes.
 	}
 
 	// Update is called once per frame
@@ -58,19 +61,16 @@ public class PhoneCamera : MonoBehaviour
 
 		int orient = -cameraTexture.videoRotationAngle;
 		background.rectTransform.localEulerAngles = new Vector3(0, 0, orient);
-
-		if (Input.touchCount == 1 && !press)
-        {
-			press = !press;
-			TakePhoto();
-		}
-		else if (Input.touchCount < 1 && press)
-        {
-			press = !press;
-        }
 	}
 
-	void TakePhoto()  // Start this Coroutine on some button click
+	public void activateCamera(PhotoAction pc){
+		this.cameraTexture.Play();
+		camAvailable = true;
+
+		actualPhotoAction = pc;
+	}
+
+	public void TakePhoto()  // Start this Coroutine on some button click
 	{
 		// it's a rare case where the Unity doco is pretty clear,
 		// http://docs.unity3d.com/ScriptReference/WaitForEndOfFrame.html
@@ -80,11 +80,31 @@ public class PhoneCamera : MonoBehaviour
 		photo.SetPixels(cameraTexture.GetPixels());
 		photo.Apply();
 		Debug.Log(photo);
-		background.texture = photo;
 
 		//Encode to a PNG
 		byte[] bytes = photo.EncodeToPNG();
+
+		string fileName = "photo.png";
+		string subPath = Path.Combine(Application.dataPath, "selfies");
+		string filePath = Path.Combine(subPath, fileName);
+		
 		//Write out the PNG. Of course you have to substitute your_path for something sensible
-		File.WriteAllBytes("selfies/photo.png", bytes);
+		if (!Directory.Exists(subPath))
+		{
+			Directory.CreateDirectory(subPath);
+		}
+
+		File.WriteAllBytes(filePath, bytes);
+
+		actualPhotoAction.answer(null);
+	}
+
+	public Texture2D loadPhoto(string filePath){
+		Texture2D tex = new Texture2D(2, 2);
+		byte[] pixels = File.ReadAllBytes(filePath);
+
+        tex.LoadImage(pixels);
+
+		return tex;
 	}
 }

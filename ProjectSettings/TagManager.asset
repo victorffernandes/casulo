@@ -12,6 +12,7 @@ TagManager:
   - tick-check-error
   - game-over
   - quiz-init
+  - photo-taker
   layers:
   - Default
   - TransparentFX

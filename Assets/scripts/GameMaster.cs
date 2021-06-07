@@ -33,7 +33,7 @@ public class GameMaster : MonoBehaviour
             item.TouchedObject += OnTouch;
         }
 
-        // changeToQuiz();
+        //changeToQuiz();
         getGameAction("introduction").play(checkQuestionModeCallback);
     }
 
