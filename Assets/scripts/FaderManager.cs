@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Net.Mime;
+using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
@@ -40,6 +41,10 @@ public class FaderManager : MonoBehaviour
     public void resetScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void exit(){
+        Application.Quit();
     }
 
 }
