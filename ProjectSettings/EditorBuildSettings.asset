@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/deficiente.unity
     guid: 107640dca82694d5d9b9acb14c3c7c9b
+  - enabled: 1
+    path: Assets/Scenes/creditos.unity
+    guid: 1f98ef2a7de419449a04f5c746e7a91a
   m_configObjects: {}
