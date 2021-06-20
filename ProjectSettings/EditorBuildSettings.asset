@@ -22,8 +22,14 @@ EditorBuildSettings:
     guid: 107640dca82694d5d9b9acb14c3c7c9b
   - enabled: 1
     path: Assets/Scenes/creditos.unity
-    guid: 1f98ef2a7de419449a04f5c746e7a91a
+    guid: b824fcf96f4974281acbc2b167fa90fb
   - enabled: 1
     path: Assets/Scenes/higiene.unity
-    guid: c42c84d6a3f05ed4aa473af5821e04f7
+    guid: 980ac87d6bb5642e08f3a9b9ac183437
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   m_configObjects: {}
