@@ -65,6 +65,7 @@ public class Action
         { // se não estiver nenhuma action rolando
             float time = this.getAudioClip().length;
             Action.mainAudioSource.PlayOneShot(this.getAudioClip());
+            Debug.Log("Play Audio");
 
             master.GetComponent<MonoBehaviour>().StartCoroutine(this.delayFill(this.getText(), time, callback));
         }

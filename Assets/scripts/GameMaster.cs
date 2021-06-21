@@ -1,4 +1,6 @@
-﻿using System;
+﻿using System.IO;
+using System.Net.Mime;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -17,7 +19,8 @@ public class GameMaster : MonoBehaviour
     public string phaseName;
     void Start()
     {
-        string[] actionsStrings = System.IO.File.ReadAllLines("./Assets/texts/texts-" + phaseName);
+        TextAsset resource = Resources.Load<TextAsset>("texts/texts-" + phaseName);
+        string[] actionsStrings = resource.text.Split('\n'); // resource.text;
         mainAudioSource = gameObject.GetComponent<AudioSource>();
         touchableObjects = GameObject.FindObjectsOfType<TouchableObject>();
 
