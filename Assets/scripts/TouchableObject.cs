@@ -82,6 +82,7 @@ public class TouchableObject : MonoBehaviour
     {
         if (!isChecked && !Action.getPlayingState()) // TODO: checar se está jogando para ativar ou desativar o checked  
         {
+            this.over.SetActive(false);
             OnTouch();
         }
     }
