@@ -17,9 +17,12 @@ public class PhoneCamera : MonoBehaviour
 
 	public PhotoAction actualPhotoAction;
 
+	private string phaseName;
+
 	// Use this for initialization
 	void Start()
 	{
+		phaseName = GameObject.FindObjectOfType<GameMaster>().phaseName;
 		defaultBackground = background.texture;
 		WebCamDevice[] devices = WebCamTexture.devices;
 		press = false;
@@ -72,10 +75,6 @@ public class PhoneCamera : MonoBehaviour
 
 	public void TakePhoto()  // Start this Coroutine on some button click
 	{
-		// it's a rare case where the Unity doco is pretty clear,
-		// http://docs.unity3d.com/ScriptReference/WaitForEndOfFrame.html
-		// be sure to scroll down to the SECOND long example on that doco page 
-
 		Texture2D photo = new Texture2D(cameraTexture.width, cameraTexture.height);
 		photo.SetPixels(cameraTexture.GetPixels());
 		photo.Apply();
@@ -84,7 +83,8 @@ public class PhoneCamera : MonoBehaviour
 		//Encode to a PNG
 		byte[] bytes = photo.EncodeToPNG();
 
-		string fileName = "photo.png";
+		string uuid = System.Guid.NewGuid().ToString();
+		string fileName = "photo-"+phaseName+"-"+ uuid +".png";
 		string subPath = Path.Combine(Application.dataPath, "selfies");
 		string filePath = Path.Combine(subPath, fileName);
 		
