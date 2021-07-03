@@ -13,11 +13,13 @@ public class Galeria : MonoBehaviour
     void Start()
     {
         string subPath = Path.Combine(Application.dataPath, "selfies");
+        Debug.Log(subPath);
         dir = new DirectoryInfo(subPath);
         FileInfo[] info = dir.GetFiles("*.png");
         int i = 0;
         foreach (FileInfo f in info)
         {
+            Debug.Log(f.FullName);
             GameObject temp = Instantiate(prefab, new Vector3(50, -200 -i, 0), Quaternion.identity, scroll.transform);
             temp.transform.GetChild(1).GetComponent<RawImage>().texture = LoadPNG(f);
             i += 600;
