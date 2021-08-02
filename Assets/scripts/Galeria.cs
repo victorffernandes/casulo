@@ -12,7 +12,7 @@ public class Galeria : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        string subPath = Path.Combine(Application.dataPath, "selfies");
+        string subPath = Path.Combine(Application.persistentDataPath, "selfies");
         Debug.Log(subPath);
         dir = new DirectoryInfo(subPath);
         FileInfo[] info = dir.GetFiles("*.png");

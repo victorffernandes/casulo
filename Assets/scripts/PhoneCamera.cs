@@ -85,7 +85,7 @@ public class PhoneCamera : MonoBehaviour
 
 		string uuid = System.Guid.NewGuid().ToString();
 		string fileName = "photo-"+phaseName+"-"+ uuid +".png";
-		string subPath = Path.Combine(Application.dataPath, "selfies");
+		string subPath = Path.Combine(Application.persistentDataPath, "selfies");
 		string filePath = Path.Combine(subPath, fileName);
 		
 		//Write out the PNG. Of course you have to substitute your_path for something sensible
