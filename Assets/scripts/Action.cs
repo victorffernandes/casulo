@@ -112,15 +112,15 @@ public class Action
         if (string.Equals(trueName,"membros-inferiores-ossos-info"))
             return "O membro inferior possui 62 ossos, sendo 26 em cada pé, 2 tibias, 2 fíbulas 2 rotulas, 2 femurs e 2 coxas.";
         if (string.Equals(trueName,"caixa-toraxica-info"))
-                return "A caixa toraxica fica no peito e protege o coração e os pulmões";
+            return "A caixa toraxica fica no peito e protege o coração e os pulmões";
         if (string.Equals(trueName,"estribo-info"))
             return "O estribo é o menor osso do corpo humano e fica localizado dentro do nosso ouvido.";
         if (string.Equals(trueName,"estribo-pergunta"))
-            return "Com o mouse, clique no menor osso do corpo humano|cranio";
+            return "Com o mouse, clique no menor osso do corpo humano";
         if (string.Equals(trueName,"femur-pergunta"))
-            return "Com o mouse, clique no maior osso do corpo humano|perna-esquerda,perna-direita";
+            return "Com o mouse, clique no maior osso do corpo humano";
         if (string.Equals(trueName,"caixa-toraxica-pergunta"))
-            return "Clique com o mouse onde fica a caixa toraxica|tronco";
+            return "Clique com o mouse onde fica a caixa toraxica";
         
         //fase 2
         if (string.Equals(trueName,"introducao"))
@@ -188,10 +188,9 @@ public class Action
     }
 
     public string urlVideo(string audioName){
-        // string trueName = audioName.Split(' ')[0];
-        // return (Videos/" + phaseName + "/" + trueName);
+        string trueName = audioName.Split(' ')[0];
         string phaseName = Action.master.GetComponent<GameMaster>().phaseName;
-        return ("Videos/" + phaseName + "/video");
+        return ("Videos/" + phaseName + "/" + trueName);
     }
     public static bool getPlayingState()
     {
