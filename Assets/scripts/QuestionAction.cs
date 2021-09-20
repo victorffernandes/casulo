@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class QuestionAction : Action
@@ -31,7 +32,11 @@ public class QuestionAction : Action
     {
         string[] splittedAction = line.Split('|');
         this.answers = splittedAction.Length > 3 ? splittedAction[3].Split(',') : new string[0];
-        this.Start();
+        this.Start();        
+        if(!text)
+        {
+            text = GameObject.Find("TextArea").transform.Find("Text").GetComponent<Text>();
+        }
     }
 
     public override void play(PlayCallback callback)
@@ -41,11 +46,13 @@ public class QuestionAction : Action
             isPlaying = true;
             float time = this.getAudioClip().length;
             mainAudioSource.PlayOneShot(this.getAudioClip());
+            text.text = "";
+            master.GetComponent<MonoBehaviour>().StartCoroutine(setText(audioText(this.getAudioClip().ToString())));
 
             Action.master.GetComponent<MonoBehaviour>().StartCoroutine(this.delayFill(this.getText(), time, callback));
         }
     }
-
+ 
     IEnumerator successAnim(float delay)
     {
         yield return new WaitForSeconds(delay);
