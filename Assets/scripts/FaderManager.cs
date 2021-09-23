@@ -31,6 +31,7 @@ public class FaderManager : MonoBehaviour
 
     public void changeSceneAnimation(int scene){
         fadeOutScene = scene;
+        Debug.Log("aaaa");
         startFadeOut();
     }
 

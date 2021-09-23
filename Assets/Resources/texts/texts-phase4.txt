@@ -4,6 +4,4 @@ escova|Sounds/phase4/info/escova-info|Sample
 sabonete|Sounds/phase4/info/sabonete-info|Sample
 shampoo|Sounds/phase4/info/shampoo-info|Sample
 question-1|Sounds/phase4/pergunta-fio-dental|Sample|fio-dental
-$photo-2|Sounds/phase4/foto-fio-dental|Sample|fio-dental
 question-2|Sounds/phase4/pergunta-shampoo|Sample|shampoo
-$photo-1|Sounds/phase4/foto-cabelo|Sample|cabelo

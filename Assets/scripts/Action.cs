@@ -81,7 +81,6 @@ public class Action
             text.text = "";
             Action.mainAudioSource.PlayOneShot(this.getAudioClip());
             videoPlayer.clip = (VideoClip)Resources.Load(urlVideo(this.getAudioClip().ToString()));
-            Debug.Log(urlVideo(this.getAudioClip().ToString()));
             videoPlayer.Play();
             master.GetComponent<MonoBehaviour>().StartCoroutine(setText(audioText(this.getAudioClip().ToString())));
             master.GetComponent<MonoBehaviour>().StartCoroutine(this.delayFill(this.getText(), time, callback));

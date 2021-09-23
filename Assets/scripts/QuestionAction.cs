@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Video;
 
 
 public class QuestionAction : Action
@@ -37,6 +38,10 @@ public class QuestionAction : Action
         {
             text = GameObject.Find("TextArea").transform.Find("Text").GetComponent<Text>();
         }
+
+        if(!videoPlayer){
+            videoPlayer = GameObject.Find("Video Player").GetComponent<VideoPlayer>();
+        }
     }
 
     public override void play(PlayCallback callback)
@@ -47,6 +52,8 @@ public class QuestionAction : Action
             float time = this.getAudioClip().length;
             mainAudioSource.PlayOneShot(this.getAudioClip());
             text.text = "";
+            videoPlayer.clip = (VideoClip)Resources.Load(urlVideo(this.getAudioClip().ToString()));
+            videoPlayer.Play();
             master.GetComponent<MonoBehaviour>().StartCoroutine(setText(audioText(this.getAudioClip().ToString())));
 
             Action.master.GetComponent<MonoBehaviour>().StartCoroutine(this.delayFill(this.getText(), time, callback));
