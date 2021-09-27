@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class Action
 {
-    protected static bool isPlaying = false;
+    public static bool isPlaying = false;
     protected string actionName;
     private AudioClip audioClip;
     private string actionText;
@@ -63,6 +63,7 @@ public class Action
     {
         if (!Action.isPlaying)
         { // se não estiver nenhuma action rolando
+            Debug.Log("Executar");
             float time = this.getAudioClip().length;
             Action.mainAudioSource.PlayOneShot(this.getAudioClip());
             Debug.Log("Play Audio");
