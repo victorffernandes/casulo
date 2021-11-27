@@ -1554,7 +1554,7 @@ PrefabInstance:
     - target: {fileID: 5270025002481315525, guid: 559ea09516f8345ec8c2a44fbbbaab42,
         type: 3}
       propertyPath: m_Name
-      value: pe-direito
+      value: pe-esquerdo
       objectReference: {fileID: 0}
     - target: {fileID: 5270025002481315528, guid: 559ea09516f8345ec8c2a44fbbbaab42,
         type: 3}
@@ -1600,7 +1600,7 @@ PrefabInstance:
     - target: {fileID: 5270025002481315530, guid: 559ea09516f8345ec8c2a44fbbbaab42,
         type: 3}
       propertyPath: action
-      value: pe-direito
+      value: pe-esquerdo
       objectReference: {fileID: 0}
     - target: {fileID: 5270025002481315530, guid: 559ea09516f8345ec8c2a44fbbbaab42,
         type: 3}
@@ -1855,7 +1855,7 @@ PrefabInstance:
     - target: {fileID: 5270025002481315525, guid: 559ea09516f8345ec8c2a44fbbbaab42,
         type: 3}
       propertyPath: m_Name
-      value: braco-direito
+      value: braco-esquerdo
       objectReference: {fileID: 0}
     - target: {fileID: 5270025002481315528, guid: 559ea09516f8345ec8c2a44fbbbaab42,
         type: 3}
@@ -2656,7 +2656,7 @@ PrefabInstance:
     - target: {fileID: 5270025002481315525, guid: 559ea09516f8345ec8c2a44fbbbaab42,
         type: 3}
       propertyPath: m_Name
-      value: braco-esquerdo
+      value: braco-direito
       objectReference: {fileID: 0}
     - target: {fileID: 5270025002481315528, guid: 559ea09516f8345ec8c2a44fbbbaab42,
         type: 3}
@@ -2682,7 +2682,7 @@ PrefabInstance:
     - target: {fileID: 5270025002481315530, guid: 559ea09516f8345ec8c2a44fbbbaab42,
         type: 3}
       propertyPath: action
-      value: braco-esquerdo
+      value: braco-direito
       objectReference: {fileID: 0}
     - target: {fileID: 5270025002481315530, guid: 559ea09516f8345ec8c2a44fbbbaab42,
         type: 3}
@@ -4273,7 +4273,7 @@ PrefabInstance:
     - target: {fileID: 5270025002481315525, guid: 559ea09516f8345ec8c2a44fbbbaab42,
         type: 3}
       propertyPath: m_Name
-      value: pe-esquerdo
+      value: pe-direito
       objectReference: {fileID: 0}
     - target: {fileID: 5270025002481315525, guid: 559ea09516f8345ec8c2a44fbbbaab42,
         type: 3}
@@ -4334,7 +4334,7 @@ PrefabInstance:
     - target: {fileID: 5270025002481315530, guid: 559ea09516f8345ec8c2a44fbbbaab42,
         type: 3}
       propertyPath: action
-      value: pe-esquerdo
+      value: pe-direito
       objectReference: {fileID: 0}
     - target: {fileID: 5270025002481315530, guid: 559ea09516f8345ec8c2a44fbbbaab42,
         type: 3}
