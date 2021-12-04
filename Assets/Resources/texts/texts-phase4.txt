@@ -1,4 +1,4 @@
-introduction|Sounds/phase4/info/intro-info| Sample
+introduction|Sounds/phase4/info/intro-info_cut|Sample
 fio-dental|Sounds/phase4/info/fio-dental-info|Sample
 escova|Sounds/phase4/info/escova-info|Sample
 sabonete|Sounds/phase4/info/sabonete-info|Sample

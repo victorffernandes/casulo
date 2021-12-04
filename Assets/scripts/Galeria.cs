@@ -13,7 +13,10 @@ public class Galeria : MonoBehaviour
     void Start()
     {
         string subPath = Path.Combine(Application.persistentDataPath, "selfies");
-        Debug.Log(subPath);
+         if(!Directory.Exists(subPath))
+        {    
+            Directory.CreateDirectory(subPath);
+        }
         dir = new DirectoryInfo(subPath);
         FileInfo[] info = dir.GetFiles("*.png");
         int i = 0;
@@ -46,11 +49,5 @@ public class Galeria : MonoBehaviour
         tex = new Texture2D(2, 2);
         tex.LoadImage(imageBytes);
         return tex;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
