@@ -1100,7 +1100,7 @@ PrefabInstance:
     - target: {fileID: 5232765380274627918, guid: 94609cd6c53df406d8da9152028ca427,
         type: 3}
       propertyPath: m_FontData.m_FontSize
-      value: 28
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 5232765380274627918, guid: 94609cd6c53df406d8da9152028ca427,
         type: 3}
@@ -1110,7 +1110,17 @@ PrefabInstance:
     - target: {fileID: 5232765380274627918, guid: 94609cd6c53df406d8da9152028ca427,
         type: 3}
       propertyPath: m_Text
-      value: ACESSIBILIDADE
+      value: "O corpo humano e suas fun\xE7oes"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5232765380274627918, guid: 94609cd6c53df406d8da9152028ca427,
+        type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5232765380274627918, guid: 94609cd6c53df406d8da9152028ca427,
+        type: 3}
+      propertyPath: m_FontData.m_LineSpacing
+      value: 0.79
       objectReference: {fileID: 0}
     - target: {fileID: 5232765380274627919, guid: 94609cd6c53df406d8da9152028ca427,
         type: 3}
@@ -1796,7 +1806,7 @@ PrefabInstance:
     - target: {fileID: 5270025002481315530, guid: 559ea09516f8345ec8c2a44fbbbaab42,
         type: 3}
       propertyPath: action
-      value: pe-direito
+      value: pe-esquerdo
       objectReference: {fileID: 0}
     - target: {fileID: 5270025002481315530, guid: 559ea09516f8345ec8c2a44fbbbaab42,
         type: 3}
@@ -2107,7 +2117,7 @@ PrefabInstance:
     - target: {fileID: 5270025002481315530, guid: 559ea09516f8345ec8c2a44fbbbaab42,
         type: 3}
       propertyPath: action
-      value: braco-direito
+      value: braco-esquerdo
       objectReference: {fileID: 0}
     - target: {fileID: 5270025002481315530, guid: 559ea09516f8345ec8c2a44fbbbaab42,
         type: 3}
@@ -3146,7 +3156,7 @@ PrefabInstance:
     - target: {fileID: 5270025002481315530, guid: 559ea09516f8345ec8c2a44fbbbaab42,
         type: 3}
       propertyPath: action
-      value: braco-esquerdo
+      value: braco-direito
       objectReference: {fileID: 0}
     - target: {fileID: 5270025002481315530, guid: 559ea09516f8345ec8c2a44fbbbaab42,
         type: 3}
@@ -4707,7 +4717,7 @@ PrefabInstance:
     - target: {fileID: 5270025002481315530, guid: 559ea09516f8345ec8c2a44fbbbaab42,
         type: 3}
       propertyPath: action
-      value: pe-esquerdo
+      value: pe-direito
       objectReference: {fileID: 0}
     - target: {fileID: 5270025002481315530, guid: 559ea09516f8345ec8c2a44fbbbaab42,
         type: 3}

@@ -3869,6 +3869,11 @@ PrefabInstance:
       propertyPath: m_FontData.m_MaxSize
       value: 283
       objectReference: {fileID: 0}
+    - target: {fileID: 5232765380274627918, guid: 94609cd6c53df406d8da9152028ca427,
+        type: 3}
+      propertyPath: m_Text
+      value: Os sentidos
+      objectReference: {fileID: 0}
     - target: {fileID: 5232765380274627919, guid: 94609cd6c53df406d8da9152028ca427,
         type: 3}
       propertyPath: m_AnchoredPosition.y

@@ -19,6 +19,7 @@ public class GameMaster : MonoBehaviour
     public string phaseName;
     void Start()
     {
+        Action.isPlaying = false;
         TextAsset resource = Resources.Load<TextAsset>("texts/texts-" + phaseName);
         string[] actionsStrings = resource.text.Split('\n'); // resource.text;
         mainAudioSource = gameObject.GetComponent<AudioSource>();

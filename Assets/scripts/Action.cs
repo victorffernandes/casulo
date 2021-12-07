@@ -10,7 +10,7 @@ using System.IO;
 
 public class Action
 {
-    protected static bool isPlaying = false;
+    public static bool isPlaying = false;
     protected string actionName;
     private AudioClip audioClip;
     private string actionText;
