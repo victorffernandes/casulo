@@ -228,8 +228,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.356672, y: 0.02720793}
   m_AnchorMax: {x: 0.6125821, y: 0.08241586}
-  m_AnchoredPosition: {x: 5.43, y: 0}
-  m_SizeDelta: {x: 96.97, y: 15.63}
+  m_AnchoredPosition: {x: 4, y: 0}
+  m_SizeDelta: {x: 81.25, y: 15.63}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &102310566
 MonoBehaviour:
@@ -251,7 +251,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 9831759d25b11429caeeb57796f5a61c, type: 3}
-    m_FontSize: 15
+    m_FontSize: 12
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -261,7 +261,7 @@ MonoBehaviour:
     m_RichText: 0
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 0.7
+    m_LineSpacing: 0.6
   m_Text: Cuidados e Higiene do corpo humano
 --- !u!222 &102310567
 CanvasRenderer:
@@ -326,7 +326,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 621011da88df227499cbd106b2503b8f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 980cf079b0c270444b37bf2eca3c18ae, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -401,7 +401,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 9831759d25b11429caeeb57796f5a61c, type: 3}
-    m_FontSize: 22
+    m_FontSize: 15
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -491,7 +491,7 @@ PrefabInstance:
     - target: {fileID: 176115944899763199, guid: 62fbaa6fada48455cb321a2eb6914df0,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 176115944899763199, guid: 62fbaa6fada48455cb321a2eb6914df0,
         type: 3}
@@ -511,7 +511,7 @@ PrefabInstance:
     - target: {fileID: 176115944899763199, guid: 62fbaa6fada48455cb321a2eb6914df0,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.25
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 176115944899763199, guid: 62fbaa6fada48455cb321a2eb6914df0,
         type: 3}
@@ -775,7 +775,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 8400000, guid: 1619dc8a2da5c4c3b87dc203409a7171, type: 2}
+  m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
@@ -856,7 +856,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 9831759d25b11429caeeb57796f5a61c, type: 3}
-    m_FontSize: 28
+    m_FontSize: 23
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -1081,7 +1081,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 577b8ba23b94bf3408d07ddf9ed5dfee, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d6681e3534f09f44eb0b5fec382632dc, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1674,7 +1674,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3d8e587d497e0bf4ca5cb524922a88e8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6d10704183496714ea92c9ccb19ee290, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1726,7 +1726,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 751.6, y: 535}
+  m_AnchoredPosition: {x: 335, y: 541}
   m_SizeDelta: {x: 2470.7, y: 1404.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1458826763
@@ -1949,7 +1949,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.225629, y: 0.019424375}
   m_AnchorMax: {x: 0.7785112, y: 0.08800001}
-  m_AnchoredPosition: {x: 2.5250015, y: -5}
+  m_AnchoredPosition: {x: 0.74716187, y: -7.199997}
   m_SizeDelta: {x: 5.050003, y: 20.321}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1629912295
@@ -1972,7 +1972,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 9831759d25b11429caeeb57796f5a61c, type: 3}
-    m_FontSize: 25
+    m_FontSize: 15
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -2038,8 +2038,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.25629276, y: 0.029804777}
   m_AnchorMax: {x: 0.72658545, y: 0.08800001}
-  m_AnchoredPosition: {x: 3.5699997, y: 1.1199951}
-  m_SizeDelta: {x: 23.01, y: 12.08}
+  m_AnchoredPosition: {x: -2.0699997, y: -0.044006348}
+  m_SizeDelta: {x: 12.6, y: 12.08}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2090475546
 MonoBehaviour:
@@ -2061,7 +2061,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 9831759d25b11429caeeb57796f5a61c, type: 3}
-    m_FontSize: 13
+    m_FontSize: 11
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -2071,7 +2071,7 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 0.7
+    m_LineSpacing: 0.6
   m_Text: "O corpo humano e suas fun\xE7oes"
 --- !u!222 &2090475547
 CanvasRenderer:

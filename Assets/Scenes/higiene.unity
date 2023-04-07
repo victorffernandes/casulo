@@ -250,7 +250,7 @@ VideoPlayer:
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
-  m_TargetTexture: {fileID: 8400000, guid: b7b290e56ae7ec440b26de9246b1769b, type: 2}
+  m_TargetTexture: {fileID: 8400000, guid: 038a06bbf0f6aba4f9a440a0a4b0a736, type: 2}
   m_TimeReference: 0
   m_TargetMaterialRenderer: {fileID: 0}
   m_TargetMaterialProperty: _MainTex
@@ -752,7 +752,7 @@ PrefabInstance:
         type: 3}
       propertyPath: selected
       value: 
-      objectReference: {fileID: 21300000, guid: bd7efd92c922bfa46832dd2791ec1a5b,
+      objectReference: {fileID: 21300000, guid: 333f7e7767b65d741997550849c1f140,
         type: 3}
     - target: {fileID: 5270025002481315530, guid: 559ea09516f8345ec8c2a44fbbbaab42,
         type: 3}
@@ -773,7 +773,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 01c5b9b2728d88c4083ec7d77f31dd20,
+      objectReference: {fileID: 21300000, guid: a5d8ccff39411ad46b7dce965cfd3b7f,
         type: 3}
     - target: {fileID: 5270025002481315531, guid: 559ea09516f8345ec8c2a44fbbbaab42,
         type: 3}
@@ -1515,7 +1515,7 @@ PrefabInstance:
         type: 3}
       propertyPath: selected
       value: 
-      objectReference: {fileID: 21300000, guid: e7029c8d1ca151948b2e1df387ad89bf,
+      objectReference: {fileID: 21300000, guid: 4121b460ead2dd14aa3b34ac00e91a6a,
         type: 3}
     - target: {fileID: 5270025002481315530, guid: 559ea09516f8345ec8c2a44fbbbaab42,
         type: 3}
@@ -1536,7 +1536,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 7b7c73e35cc49b94f8a5180135f7fdd0,
+      objectReference: {fileID: 21300000, guid: a093dcff2caed1e40b458e73bc44748d,
         type: 3}
     - target: {fileID: 5270025002481315531, guid: 559ea09516f8345ec8c2a44fbbbaab42,
         type: 3}
@@ -2212,7 +2212,7 @@ PrefabInstance:
         type: 3}
       propertyPath: selected
       value: 
-      objectReference: {fileID: 21300000, guid: 620e6bed88cd439438e628139e0f6523,
+      objectReference: {fileID: 21300000, guid: 7b0c822c85d10e347a9d8fa74eede6c5,
         type: 3}
     - target: {fileID: 5270025002481315530, guid: 559ea09516f8345ec8c2a44fbbbaab42,
         type: 3}
@@ -2228,7 +2228,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 260f5f2a78ac1ef47b4fed7b13fa85e0,
+      objectReference: {fileID: 21300000, guid: 22afd19ede43d3047952424a9cbf69d6,
         type: 3}
     - target: {fileID: 5270025002481315531, guid: 559ea09516f8345ec8c2a44fbbbaab42,
         type: 3}
@@ -2342,7 +2342,7 @@ PrefabInstance:
     - target: {fileID: 5232765380274627918, guid: 94609cd6c53df406d8da9152028ca427,
         type: 3}
       propertyPath: m_FontData.m_FontSize
-      value: 24
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 5232765380274627918, guid: 94609cd6c53df406d8da9152028ca427,
         type: 3}
@@ -2352,7 +2352,7 @@ PrefabInstance:
     - target: {fileID: 5232765380274627918, guid: 94609cd6c53df406d8da9152028ca427,
         type: 3}
       propertyPath: m_Text
-      value: Cuidados e Higiene do corpo humano
+      value: Cuidados e Higiene do Corpo Humano
       objectReference: {fileID: 0}
     - target: {fileID: 5232765380274627918, guid: 94609cd6c53df406d8da9152028ca427,
         type: 3}
@@ -2378,22 +2378,22 @@ PrefabInstance:
     - target: {fileID: 5232765381359854346, guid: 94609cd6c53df406d8da9152028ca427,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.0069885254
+      value: 0.3999939
       objectReference: {fileID: 0}
     - target: {fileID: 5232765381359854346, guid: 94609cd6c53df406d8da9152028ca427,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 26.359985
+      value: 10.05
       objectReference: {fileID: 0}
     - target: {fileID: 5232765381359854346, guid: 94609cd6c53df406d8da9152028ca427,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 10.389999
+      value: 6.98
       objectReference: {fileID: 0}
     - target: {fileID: 5232765381359854346, guid: 94609cd6c53df406d8da9152028ca427,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1.4990005
+      value: 0.9300003
       objectReference: {fileID: 0}
     - target: {fileID: 5232765381359854346, guid: 94609cd6c53df406d8da9152028ca427,
         type: 3}
@@ -3047,6 +3047,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 675ef6626179443db974f9e303701773,
         type: 3}
+    - target: {fileID: 7809415758242224882, guid: 62fbaa6fada48455cb321a2eb6914df0,
+        type: 3}
+      propertyPath: fadeOutScene
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62fbaa6fada48455cb321a2eb6914df0, type: 3}
 --- !u!224 &1100740941 stripped
@@ -3363,7 +3368,7 @@ PrefabInstance:
         type: 3}
       propertyPath: selected
       value: 
-      objectReference: {fileID: 21300000, guid: c4c0ea4226bbf884e9067e1e655c37ae,
+      objectReference: {fileID: 21300000, guid: aba4c1378e2b5fd419e2a58b5573b2a6,
         type: 3}
     - target: {fileID: 5270025002481315530, guid: 559ea09516f8345ec8c2a44fbbbaab42,
         type: 3}
@@ -3384,7 +3389,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: e5c01e3b721ba9b40aa7d4954e4f7aaf,
+      objectReference: {fileID: 21300000, guid: 8755131630c6b024abbcf20d04e06abe,
         type: 3}
     - target: {fileID: 5270025002481315531, guid: 559ea09516f8345ec8c2a44fbbbaab42,
         type: 3}
@@ -3773,7 +3778,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 8400000, guid: b7b290e56ae7ec440b26de9246b1769b, type: 2}
+  m_Texture: {fileID: 8400000, guid: 038a06bbf0f6aba4f9a440a0a4b0a736, type: 2}
   m_UVRect:
     serializedVersion: 2
     x: 0

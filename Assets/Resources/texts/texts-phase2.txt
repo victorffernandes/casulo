@@ -1,4 +1,4 @@
-introduction|Sounds/phase2/introducao|O corpo humano é formado por cinco orgãos dos sentidos são eles a visão, o olfato, o paladar, a audicao e o tato.
+introduction|Sounds/phase2/introducao|O corpo humano é formado por cinco orgãos dos sentidos são eles a visão, o olfato, o paladar, a audição e o tato.
 olhos|Sounds/phase2/visao/visao|A visão, por meio dos olhos enxergamos o mundo e todas as coisas.
 orelha|Sounds/phase2/audicao/audicao|Audição, através dos nossos ouvidos discriminamos sons altos, baixos, fortes, fracos.
 nariz|Sounds/phase2/olfato/olfato|O olfato, através do nariz respiramos sentimos odores e cheiros que podem ser bons ou ruins.
