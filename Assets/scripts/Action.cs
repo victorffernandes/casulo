@@ -101,7 +101,7 @@ public class Action
         string trueName = audioName.Split(' ')[0];
         //fase1
         if (string.Equals(trueName,"inicio-ossos"))
-            return "O corpo humano pode ser analizado sobre diversas áreas, podemos estudar as células, os tecidos, os orgãos, os sistemas, enfim aqui nesse momento estudaremos os ossos.";
+            return "O corpo humano pode ser analisado sobre diversas áreas, podemos estudar as células, os tecidos, os orgãos, os sistemas, enfim aqui nesse momento estudaremos os ossos.";
         if (string.Equals(trueName,"esqueleto-geral"))
             return "Você sabia que o esqueleto humano é composto por 206 ossos que são movimentados pelos músculos e ligados uns aos outros pelas articulações.";
         if (string.Equals(trueName,"ossos-bracos-pernas-info"))
@@ -109,9 +109,9 @@ public class Action
         if (string.Equals(trueName,"femur-info"))
             return "O fêmur é o osso mais comprido do corpo humano e liga o quadril ao joelho.";
         if (string.Equals(trueName,"membros-inferiores-ossos-info"))
-            return "O membro inferior possui 62 ossos, sendo 26 em cada pé, 2 tíbias, 2 fíbulas, 2 rótulas, 2 fémures e 2 coxas.";
+            return "O membro inferior possui 62 ossos, sendo 26 em cada pé, 2 tíbias, 2 fíbulas, 2 rótulas, 2 fêmures e 2 coxas.";
         if (string.Equals(trueName,"caixa-toraxica-info"))
-            return "A caixa toráxica fica no peito e protege o coração e os pulmões";
+            return "Caixa torácica, a caixa torácica fica localizada no peito e protege o coração e os pulmões";
         if (string.Equals(trueName,"estribo-info"))
             return "O estribo é o menor osso do corpo humano e fica localizado dentro do nosso ouvido.";
         if (string.Equals(trueName,"estribo-pergunta"))
@@ -119,7 +119,7 @@ public class Action
         if (string.Equals(trueName,"femur-pergunta"))
             return "Com o mouse, clique no maior osso do corpo humano";
         if (string.Equals(trueName,"caixa-toraxica-pergunta"))
-            return "Clique com o mouse onde fica a caixa toráxica";
+            return "Clique onde fica localizada a caixa torácica";
         
         //fase 2
         if (string.Equals(trueName,"introducao"))
@@ -133,7 +133,7 @@ public class Action
         if (string.Equals(trueName,"paladar"))
             return "O paladar pela boca podemos falar, respirar, beijar, sentir o gosto azedo, amargo, doce, salgado, gostoso ou ruim.";
         if (string.Equals(trueName,"tato"))
-            return "Tato, por meio das mãos podemos tocar e sentir as texturas tais como aspero e liso, grosso e fino.";
+            return "Tato, por meio das mãos podemos tocar e sentir as texturas tais como áspero e liso, grosso e fino.";
         if (string.Equals(trueName,"pergunta-audicao"))
             return "Clique na parte do corpo que usamos para ouvir";
         if (string.Equals(trueName,"pergunta-paladar"))
@@ -149,7 +149,7 @@ public class Action
         if (string.Equals(trueName,"intro"))
             return "Venha jogar e se divertir aprendendo. Através de uma viagem no corpo humano. Clique aqui.";
         if (string.Equals(trueName,"cabelo-info"))
-            return "Cabelo. O cabelo fica localizado na nossa cabeça. Ele pode ser longo ou curto. Pode ser liso ou crespo, encaracolado. Cabelo pode ser da cor: preto, castanho, loiro ou ruivo";
+            return "Cabelo. O cabelo fica localizado na nossa cabeça. Ele pode ser longo ou curto. Pode ser liso ou crespo, encaracolado. Cabelo pode ser da cor: preta, castanho, loiro ou ruivo";
         if (string.Equals(trueName,"pe-direito"))
             return "Pé direito";
         if (string.Equals(trueName,"pes-info"))
@@ -175,9 +175,9 @@ public class Action
         if (string.Equals(trueName,"escova-info"))
             return "Escova de dente. Para os dentes ficarem bem limpos e brancos temos que escová-los todos os dias após as refeições, usando a escova de dentes e o creme dental, ou a pasta de dente. Não se esqueça de limpar todos os cantinhos, e inclusive aqueles dentes localizados lá atrás. Há! Também não esqueça de limpar a sua língua!";
         if (string.Equals(trueName,"sabonete-info"))
-            return "Sabonete. O sabonete é um produto que serve para limpar a sujeira, a poeira, o suor e as bactérias, que são aqueles bichinhos invisíveis a olho nú que podem estar presentes em nosso corpo pelo acumulo da sujeira do dia a dia. Por isso o sabonete é tão importante pra higiene do nosso corpo. Ele é muito cheiroso e vai limpar e tirar todos esses resíduos.";
+            return "Sabonete. O sabonete é um produto que serve para limpar a sujeira, a poeira, o suor e as bactérias, que são aqueles bichinhos invisíveis a olho nú que podem estar presentes em nosso corpo pelo acúmulo da sujeira do dia a dia. Por isso, o sabonete é tão importante para higiene do nosso corpo. Ele é muito cheiroso e vai limpar e tirar todos esses resíduos.";
         if (string.Equals(trueName,"shampoo-info"))
-            return "Shampoo e condicionador. O shampoo e o condicionador são produtos destinados a cuidarem da saúde dos nossos cabelos. Eles mantem a limpeza do nosso couro cabeludo. Por isso é muito importante, sempre que tomarmos banho passarmos o shampoo e o condicionador, para que os nossos cabelos possam ficar sempre limpos e saudáveis. Além de cheirosos e macios";
+            return "Shampoo e condicionador. O shampoo e o condicionador são produtos destinados a cuidarem da saúde dos nossos cabelos. Eles mantém a limpeza do nosso couro cabeludo. Por isso é muito importante, sempre que tomarmos banho passarmos o shampoo e o condicionador, para que os nossos cabelos possam ficar sempre limpos e saudáveis. Além de cheirosos e macios";
         if (string.Equals(trueName,"pergunta-fio-dental"))
             return "Agora que você já aprendeu sobre a higiene bucal, responda: Qual produto usamos para tirar a sujeira entre os dentes?";
         if (string.Equals(trueName,"pergunta-shampoo"))
