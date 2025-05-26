@@ -27,6 +27,8 @@ public class PhoneCamera : MonoBehaviour
 		WebCamDevice[] devices = WebCamTexture.devices;
 		press = false;
 
+		Debug.Log(devices);
+
 		if (devices.Length == 0)
 		{
 			camAvailable = false;
@@ -67,6 +69,7 @@ public class PhoneCamera : MonoBehaviour
 	}
 
 	public void activateCamera(PhotoAction pc){
+		Debug.Log(this.cameraTexture);
 		this.cameraTexture.Play();
 		camAvailable = true;
 
